@@ -22,6 +22,13 @@ let app = createApp({
 			this.tasks.splice(i, 1);
 			this.setActive(i - 1);
 		},
+		deleteItemIfEmpty(i) {
+			if(this.tasks[i].length === 0)
+			{
+				this.tasks.splice(i, 1);
+				this.setActive(i - 1);
+			}
+		},
 
 		deleteItemIfEmpty(i) {
 			if (!this.tasks[i]?.title) {
@@ -50,3 +57,9 @@ let app = createApp({
 
 // For debugging
 globalThis.app = app;
+
+window.addEventListener("keyup", (event) => {
+	if (event.key === "enter") {
+		app.addItem();
+	}
+})

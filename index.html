@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <title>Yet Another To-Do List</title>
 <script src="index.js" type="module"></script>
+<link rel = "stylesheet" href = "style.css">
 </head>
 <body>
 	<div id="app">
@@ -13,7 +14,9 @@
 		<ul>
 			<li v-for="(task, i) in tasks">
 				<input type="checkbox" v-model="task.done" aria-label="Done?">
-				<input type="text" aria-label="Task" v-model="task.title">
+				<input type="text" aria-label="Task" @keydown.enter="addItem()" v-focus v-model="task.title"
+													 @keydown.backspace = "deleteItemIfEmpty(i)"
+													 @keydown.backspace.prevent>
 				<button @click="deleteItem(i)">x</button>
 			</li>
 		</ul>
