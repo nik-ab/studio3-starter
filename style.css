@@ -1,0 +1,19 @@
+
+*{
+    font-family:'Lucida Sans';
+}
+input, button {
+    margin: 8px;
+}
+input[type = "text"]{
+    width: 80%;
+    height: 32px;
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
+:checked + input{
+    opacity: 50%;
+    text-decoration: line-through;
+}
